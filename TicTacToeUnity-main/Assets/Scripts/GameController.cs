@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     public Text timeText;
     public Text gameOverText;
     public Text recordText;
+    public Text timeUsedText;
 
     private string playerSide;
     private bool isPVE;
@@ -262,6 +263,7 @@ public class GameController : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         gameOverText.text = value;
+        timeUsedText.text = timeText.text;
     }
 
     public void RestartGame()
@@ -337,64 +339,80 @@ public class GameController : MonoBehaviour
                 grid.button.interactable = true;
             }
         }
-        // 1. 如果下在该位置可以赢棋，那么下在该位置
-        // 2. 如果对手下在该位置可以赢棋，那下在该位置
-        if (CheckAiAndPlayerWin()) return;
-        // 3. 如果中心位置空闲，那么下在中心位置要优于边上和角上位置
-        if (string.IsNullOrEmpty(buttonList[4].text))
+
+        if (diff == 0)
         {
-            buttonList[4].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("中间格子空着");
-            return;
+            // 1. 如果下在该位置可以赢棋，那么下在该位置
+            // 2. 如果对手下在该位置可以赢棋，那下在该位置
+            if (CheckAiAndPlayerWin()) return;
+            // 3. 如果中心位置空闲，那么下在中心位置要优于边上和角上位置
+            if (string.IsNullOrEmpty(buttonList[4].text))
+            {
+                buttonList[4].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("中间格子空着");
+                return;
+            }
+            // 4. 如果角上位置空闲，那么下在角上位置要优于边上位置
+            if (string.IsNullOrEmpty(buttonList[0].text))
+            {
+                buttonList[0].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("角上格子空着");
+                return;
+            }
+            if (string.IsNullOrEmpty(buttonList[2].text))
+            {
+                buttonList[2].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("角上格子空着");
+                return;
+            }
+            if (string.IsNullOrEmpty(buttonList[6].text))
+            {
+                buttonList[6].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("角上格子空着");
+                return;
+            }
+            if (string.IsNullOrEmpty(buttonList[8].text))
+            {
+                buttonList[8].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("角上格子空着");
+                return;
+            }
+            // 5. 如果只有边上位置空闲，那么只能下在边上位置
+            if (string.IsNullOrEmpty(buttonList[1].text))
+            {
+                buttonList[1].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("边上格子空着");
+                return;
+            }
+            if (string.IsNullOrEmpty(buttonList[3].text))
+            {
+                buttonList[3].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("边上格子空着");
+                return;
+            }
+            if (string.IsNullOrEmpty(buttonList[5].text))
+            {
+                buttonList[5].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("边上格子空着");
+                return;
+            }
+            if (string.IsNullOrEmpty(buttonList[7].text))
+            {
+                buttonList[7].GetComponentInParent<GridSpace>().SetSpace();
+                Debug.Log("边上格子空着");
+            }
         }
-        // 4. 如果角上位置空闲，那么下在角上位置要优于边上位置
-        if (string.IsNullOrEmpty(buttonList[0].text))
+        else
         {
-            buttonList[0].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("角上格子空着");
-            return;
-        }
-        if (string.IsNullOrEmpty(buttonList[2].text))
-        {
-            buttonList[2].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("角上格子空着");
-            return;
-        }
-        if (string.IsNullOrEmpty(buttonList[6].text))
-        {
-            buttonList[6].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("角上格子空着");
-            return;
-        }
-        if (string.IsNullOrEmpty(buttonList[8].text))
-        {
-            buttonList[8].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("角上格子空着");
-            return;
-        }
-        // 5. 如果只有边上位置空闲，那么只能下在边上位置
-        if (string.IsNullOrEmpty(buttonList[1].text))
-        {
-            buttonList[1].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("边上格子空着");
-            return;
-        }
-        if (string.IsNullOrEmpty(buttonList[3].text))
-        {
-            buttonList[3].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("边上格子空着");
-            return;
-        }
-        if (string.IsNullOrEmpty(buttonList[5].text))
-        {
-            buttonList[5].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("边上格子空着");
-            return;
-        }
-        if (string.IsNullOrEmpty(buttonList[7].text))
-        {
-            buttonList[7].GetComponentInParent<GridSpace>().SetSpace();
-            Debug.Log("边上格子空着");
+            for (int i = 0; i < buttonList.Length; i++)
+            {
+                if (string.IsNullOrEmpty(buttonList[i].text))
+                {
+                    buttonList[i].GetComponentInParent<GridSpace>().SetSpace();
+                    Debug.Log("顺序寻找空位");
+                    return;
+                }
+            }
         }
         //audioManager.PlayMoveAudio(audioManager.moveAudio1);
     }
