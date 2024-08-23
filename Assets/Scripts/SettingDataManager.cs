@@ -54,6 +54,7 @@ public class SettingDataManager : MonoBehaviour
         settingData.bgmvalue = BGMSlider.value;
     }
 
+    //保存设置界面数据为json文件
     public void SaveData()
     {
         string json = JsonUtility.ToJson(list,true);
@@ -69,6 +70,7 @@ public class SettingDataManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayOrder", PlayOrder.value);
     }
 
+    //读取json文件内的数据
     public void LoadData()
     {
         string json;

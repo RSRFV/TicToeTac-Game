@@ -6,9 +6,8 @@ using System;
 
 public class TimeCounter : MonoBehaviour
 {
-    public Text timeText;
-
-    bool isCounting = false;
+    public Text timeText; //用时文本
+    bool isCounting = false; //是否计时
     //private bool isCounting = false;
     private float countTime = 0;
 
@@ -43,7 +42,6 @@ public class TimeCounter : MonoBehaviour
         isCounting = true;
         countTime = 0;
     }
-
     string TimeFormatter(float time)
     {
         int hour = (int)time / 3600;

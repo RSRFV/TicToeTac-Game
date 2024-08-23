@@ -14,8 +14,6 @@ public class SettingController : MonoBehaviour
     public Dropdown Difficulty;
     public Dropdown PlayOrder;
 
-    private int diff;
-
     AudioManager audioManager;
 
     // Start is called before the first frame update
@@ -39,14 +37,6 @@ public class SettingController : MonoBehaviour
         Instance = this;
     }
 
-    public void SetDiff()
-    {
-        diff = Difficulty.value;
-    }
-    public int GetDiff()
-    {
-        return diff;
-    }
     public void VolumeControll()
     {
         menuAudio.volume = audioSlider.value;

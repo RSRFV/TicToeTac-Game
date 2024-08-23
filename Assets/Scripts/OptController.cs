@@ -24,7 +24,7 @@ public class OptController : MonoBehaviour
     public void StartGame()
     {
         audioManager.PlayClickedAudio(audioManager.clickAudio2);
-        ChangeScene.Jump();
+        ChangeScene.Jump(); //开始游戏跳转场景
     }
 
     public void SettingGame()

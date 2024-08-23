@@ -56,7 +56,6 @@ public class GameController : MonoBehaviour
     DataSaveManager dataSaveManager;
     TimeCounter timeCounter;
 
-
     private void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -66,6 +65,7 @@ public class GameController : MonoBehaviour
         diff = PlayerPrefs.GetInt("Difficulty");
         order= PlayerPrefs.GetInt("PlayOrder");
     }
+
     void SetGameControllerReferenceOnButtons()
     {
         for (int i = 0; i < buttonList.Length; i++)
@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
         RecordPanel.SetActive(false);
         SetPlayerColors(playerX, playerO);
     }
+
     public void StartPVE()
     {
         audioManager.PlayClickedAudio(audioManager.clickAudio1);
@@ -96,13 +97,11 @@ public class GameController : MonoBehaviour
         if ((rand <= 0 && order == 0) || order == 1)
         {
             playerSide = "Rover";
-            //Debug.Log("漂泊者先行");
             tipsText.text = "漂泊者先行";
         }
         else
         {
             playerSide = "Changli";
-            //Debug.Log("长离先行");
             tipsText.text = "长离先行";
             AiAction();
         }
@@ -120,13 +119,11 @@ public class GameController : MonoBehaviour
         if ((rand <= 0 && order == 0) || order == 1)
         {
             playerSide = "Rover";
-            //Debug.Log("漂泊者先行");
             tipsText.text = "漂泊者先行";
         }
         else
         {
             playerSide = "Changli";
-            //Debug.Log("长离先行");
             tipsText.text = "长离先行";
         }
     }
@@ -134,7 +131,6 @@ public class GameController : MonoBehaviour
     public void BackMainUI()
     {
         audioManager.PlayClickedAudio(audioManager.clickAudio1);
-        //settingDataManager.LoadData();
         ChangeScene.Back();
         isPVE = false;
         RestartGame();

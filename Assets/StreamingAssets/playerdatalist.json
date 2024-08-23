@@ -1,21 +1,9 @@
 {
     "playerDataList": [
         {
-            "winner": "平局",
-            "moveCount": 5,
-            "time": "00:00:07",
-            "mode": "PVE"
-        },
-        {
             "winner": "长离",
             "moveCount": 4,
-            "time": "00:00:11",
-            "mode": "PVP"
-        },
-        {
-            "winner": "长离",
-            "moveCount": 4,
-            "time": "00:00:17",
+            "time": "00:00:05",
             "mode": "PVE"
         }
     ]

@@ -13,12 +13,7 @@ public class GridSpace : MonoBehaviour
     public Sprite ChangliSprite;
     public Image PlayerImg;
     private GameController gameController;
-    DataSaveManager dataSaveManager;
 
-    private void Start()
-    {
-        dataSaveManager = GameObject.FindGameObjectWithTag("DataSave").GetComponent<DataSaveManager>();
-    }
     public void SetGameControllerReference(GameController controller)
     {
         this.gameController = controller;
