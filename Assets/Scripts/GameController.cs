@@ -710,7 +710,7 @@ public class GameController : MonoBehaviour
             int moveCount = data.moveCount;
             string time = data.time;
             string mode = data.mode;
-            record += "  " + winner + "          " + moveCount + "         " + time + "          " + mode + "\n";
+            record += "  " + winner + "          " + moveCount + "       " + time + "        " + mode + "\n";
         }
         recordText.text = record;
         record = "";
