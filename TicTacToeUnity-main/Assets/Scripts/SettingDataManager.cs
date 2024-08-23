@@ -7,6 +7,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class SettingData
 {
+    public float bgmvalue;
     public int difficulty;
     public int playorder;
 }
@@ -19,6 +20,7 @@ public class SettingDataList
 public class SettingDataManager : MonoBehaviour
 {
     public SettingDataList list = new SettingDataList();
+    public Slider BGMSlider;
     public Dropdown Difficulty;
     public Dropdown PlayOrder;
 
@@ -41,6 +43,7 @@ public class SettingDataManager : MonoBehaviour
         settingData = new SettingData();
         settingData.difficulty = 0;
         settingData.playorder = 0;
+        settingData.bgmvalue = 0.5f;
         list.settingDataList.Add(settingData);
     }
 
@@ -48,6 +51,7 @@ public class SettingDataManager : MonoBehaviour
     {
         settingData.difficulty = Difficulty.value;
         settingData.playorder = PlayOrder.value;
+        settingData.bgmvalue = BGMSlider.value;
     }
 
     public void SaveData()
@@ -84,8 +88,10 @@ public class SettingDataManager : MonoBehaviour
             settingData = list.settingDataList[0];
             int diff = settingData.difficulty;
             int order = settingData.playorder;
+            float value = settingData.bgmvalue;
             Difficulty.value = diff;
             PlayOrder.value = order;
+            BGMSlider.value = value;
         }
     }
 }

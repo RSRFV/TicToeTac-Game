@@ -23,21 +23,20 @@ public class OptController : MonoBehaviour
 
     public void StartGame()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
-        audioManager.PlayStartAudio();
+        audioManager.PlayClickedAudio(audioManager.clickAudio2);
         ChangeScene.Jump();
     }
 
     public void SettingGame()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio2);
         //GameObject settingMenu = GameObject.FindGameObjectWithTag("SettingMenu").gameObject;
         SettingMenu.SetActive(SettingMenu.activeSelf == true ? false : true);
     }
 
     public void OnExitGame()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio2);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

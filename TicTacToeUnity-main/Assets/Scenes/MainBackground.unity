@@ -243,12 +243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910cd54a5a979e94c9d1bc2dd71694f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartAudio: {fileID: 0}
   ClickAudio: {fileID: 1566450483}
   MoveAudio: {fileID: 1642016744}
   moveAudio1: {fileID: 8300000, guid: de6bc49b640db2b43994753f88a9d4d9, type: 3}
   moveAudio2: {fileID: 8300000, guid: 7ff868f1159119843a1ab36c0b0e384c, type: 3}
-  clickAudio: {fileID: 8300000, guid: d5b9b22d9c29c8d4aa746101a56bd03d, type: 3}
+  clickAudio1: {fileID: 8300000, guid: d5b9b22d9c29c8d4aa746101a56bd03d, type: 3}
+  clickAudio2: {fileID: 8300000, guid: 29671a1e52e7d3b4ba507a4abfd1d66d, type: 3}
 --- !u!4 &48678099
 Transform:
   m_ObjectHideFlags: 0
@@ -5966,6 +5966,7 @@ MonoBehaviour:
   timeText: {fileID: 365277356}
   gameOverText: {fileID: 1778312270}
   recordText: {fileID: 401540461}
+  timeUsedText: {fileID: 0}
   RecordPanel: {fileID: 1819157104}
   gameOverPanel: {fileID: 1397826142}
   backButton: {fileID: 2045605042}

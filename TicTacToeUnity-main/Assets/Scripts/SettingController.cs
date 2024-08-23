@@ -69,7 +69,7 @@ public class SettingController : MonoBehaviour
         //游戏设置界面
         SettingMenu = GameObject.Find("SettingMenu");
         SettingMenu.SetActive(false);
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio2);
 
     }
 }

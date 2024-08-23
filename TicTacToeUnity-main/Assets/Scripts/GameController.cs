@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour
     }
     public void StartPVE()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
         timeCounter.StartTime();
         isPVE = true;
         MainUI.SetActive(false);
@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
     public void StartPVP()
     {
         timeCounter.StartTime();
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
         tipsText.gameObject.SetActive(true);
         isPVE = false;
         MainUI.SetActive(false);
@@ -133,7 +133,7 @@ public class GameController : MonoBehaviour
 
     public void BackMainUI()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
         //settingDataManager.LoadData();
         ChangeScene.Back();
         isPVE = false;
@@ -142,7 +142,7 @@ public class GameController : MonoBehaviour
 
     public void ChangeMode()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
         gameOverPanel.SetActive(false);
         MainUI.SetActive(true);
         gameOverPanel.SetActive(false);
@@ -268,7 +268,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
         timeCounter.Restart();
         tipsText.gameObject.SetActive(true);
         float rand = Random.Range(-1f, 1f);
@@ -701,7 +701,7 @@ public class GameController : MonoBehaviour
 
     public void ReadGameRecord()
     {
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
         RecordPanel.SetActive(true);
         PlayerDataList list = dataSaveManager.LoadData();
         foreach (PlayerData data in list.playerDataList)
@@ -719,7 +719,7 @@ public class GameController : MonoBehaviour
     public void CloseRecordPanel()
     {
         RecordPanel.SetActive(false);
-        audioManager.PlayClickedAudio(audioManager.clickAudio);
+        audioManager.PlayClickedAudio(audioManager.clickAudio1);
     }
 }
 
